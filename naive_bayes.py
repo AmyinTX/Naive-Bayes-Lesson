@@ -57,9 +57,11 @@ predicted = model.predict(final_df)
 print(metrics.classification_report(expected, predicted))
 print(metrics.confusion_matrix(expected, predicted))
 
+#%% check fit
 (expected==predicted).all() # checks whether the arrays are equivalent, which they are not
 check = np.equal(expected, predicted)
 mislabled = print(Counter(check)) # 14 points were mislabeled
 
+#%% predict 
 print(model.predict([[145, 160, -15]])) # predicts male
 print(model.predict([[160, 145, 15]])) # predicts female
